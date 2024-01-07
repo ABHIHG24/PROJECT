@@ -37,29 +37,8 @@
         height: 100vh;
       }
 
-      #upBtn,
-      #downBtn,
-      #leftBtn,
-      #rightBtn {
-        margin: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #512cd4;
-        color: white;
-        transition: background-color 0.3s ease;
-      }
       #box {
         display: none;
-      }
-
-      #upBtn:hover,
-      #downBtn:hover,
-      #leftBtn:hover,
-      #rightBtn:hover {
-        background-color: #7f78d2;
       }
 
       #play {
@@ -101,6 +80,57 @@
         width: 40px;
         height: 40px;
       }
+
+      #btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        width: 300px;
+        margin: 50px auto;
+      }
+
+      #upBtn {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      #downBtn {
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+      #leftBtn {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      #rightBtn {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      #btns button {
+        padding: 15px 20px;
+        font-size: 16px;
+        border: 2px solid #512cd4;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fff;
+        color: #512cd4;
+        transition: background-color 0.3s ease;
+      }
+
+      #btns button:hover {
+        background-color: #7f78d2;
+        color: #fff;
+      }
+
+      #btns button:focus {
+        outline: none;
+      }
     </style>
   </head>
   <body>
@@ -110,10 +140,6 @@
     </div>
     <center>
       <div id="box">
-        <button id="upBtn">up</button>
-        <button id="downBtn">down</button>
-        <button id="leftBtn">left</button>
-        <button id="rightBtn">right</button>
         <div id="play">
           <div>point : <span id="pt">0</span></div>
 
@@ -124,6 +150,13 @@
               alt="Bird Image"
             />
           </div>
+        </div>
+
+        <div id="btns">
+          <button id="upBtn">up</button>
+          <button id="downBtn">down</button>
+          <button id="leftBtn">left</button>
+          <button id="rightBtn">right</button>
         </div>
       </div>
     </center>
