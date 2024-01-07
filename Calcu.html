@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      button {
+        width: 58px;
+        height: 40px;
+        margin: 20px;
+        padding: 10px;
+        font-size: large;
+        font-weight: bolder;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      button:hover {
+        background-color: rgba(169, 227, 34, 0.336);
+        opacity: 80%;
+        font-size: larger;
+        box-shadow: 1px 1px 1px 1px rgba(195, 220, 33, 0.779);
+      }
+      input {
+        width: 300px;
+        height: 45px;
+        margin: 8px;
+        background-color: rgba(17, 164, 255, 0.658);
+        font-weight: bolder;
+        font-size: larger;
+        border: 3px solid gold;
+        border-end-end-radius: 20px;
+      }
+      #body {
+        border: 2px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 500px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.756);
+        box-shadow: 10px 7px 3px 1px rgba(0, 0, 0, 0.475);
+      }
+      #span {
+        position: relative;
+      }
+      h1 {
+        box-shadow: 10px 7px 3px 1px rgba(0, 0, 0, 0.475);
+        display: inline-table;
+        width: 190px;
+        height: 40px;
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>Calculator</h1></center>
+    <center>
+      <div id="body">
+        <input type="text" id="input" value="0" />
+        <span style="color: rgb(223, 218, 111)" id="span">Calculator</span>
+        <button onclick="cal('1')">1</button>
+        <button onclick="cal('2')">2</button>
+        <button onclick="cal('3')">3</button>
+        <button onclick="cal('4')">4</button>
+        <button onclick="cal('5')">5</button>
+        <button onclick="cal('6')">6</button>
+        <button onclick="cal('7')">7</button>
+        <button onclick="cal('8')">8</button>
+        <button onclick="cal('9')">9</button>
+        <button onclick="cal('9')">0</button>
+        <button onclick="cal('+')">+</button>
+        <button onclick="cal('-')">-</button>
+        <button onclick="cal('*')">*</button>
+        <button onclick="cal('/')">/</button>
+        <button onclick="cal('d')" style="background-color: green">del</button>
+        <button
+          onclick="cal('cl')"
+          style="background-color: green; padding: 0px"
+        >
+          clear
+        </button>
+
+        <button
+          onclick="calculate()"
+          style="background-color: aqua; width: 200px"
+        >
+          Answer
+        </button>
+      </div>
+    </center>
+
+    <script>
+      function cal(op) {
+        let exp = document.querySelector("#input").value;
+        if (op === "cl") {
+          exp = "";
+        } else if (op === "d") {
+          exp = exp.slice(0, -1);
+        } else {
+          exp = exp + op;
+        }
+        document.querySelector("#input").value = exp;
+      }
+
+      function calculate() {
+        let exp = document.querySelector("#input").value;
+        let res = eval(exp);
+        document.querySelector("#input").value = res;
+      }
+    </script>
+  </body>
+</html>
